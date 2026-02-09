@@ -196,7 +196,7 @@ const Hero: React.FC = () => {
 
               <img
                 src={PROFILE_IMAGE_URL}
-                alt="Abdul Qahir Jalali"
+                alt="Raheel Nadeem"
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.src =

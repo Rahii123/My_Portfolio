@@ -10,7 +10,7 @@ const AIChatWidget: React.FC = () => {
     {
       id: 'welcome',
       role: 'model',
-      text: "Hi! I'm Aura, Abdul's AI assistant. Ask me anything about his skills, experience, or projects.",
+      text: "Hi! I'm Aura, Raheel's AI assistant. Ask me anything about his skills, experience, or projects.",
       timestamp: new Date()
     }
   ]);
@@ -78,7 +78,7 @@ const AIChatWidget: React.FC = () => {
                   <p className="text-xs text-primary animate-pulse font-medium">Online</p>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-slate-100 rounded-full transition-colors text-slate-400 hover:text-slate-700"
               >
@@ -89,29 +89,27 @@ const AIChatWidget: React.FC = () => {
             {/* Chat Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
               {messages.map((msg) => (
-                <div 
-                  key={msg.id} 
+                <div
+                  key={msg.id}
                   className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
                 >
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-sm ${
-                    msg.role === 'user' ? 'bg-slate-200' : 'bg-primary/10'
-                  }`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-sm ${msg.role === 'user' ? 'bg-slate-200' : 'bg-primary/10'
+                    }`}>
                     {msg.role === 'user' ? <User className="w-4 h-4 text-slate-600" /> : <Bot className="w-4 h-4 text-primary" />}
                   </div>
-                  
-                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed shadow-sm ${
-                    msg.role === 'user' 
-                      ? 'bg-primary text-white rounded-tr-sm' 
+
+                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed shadow-sm ${msg.role === 'user'
+                      ? 'bg-primary text-white rounded-tr-sm'
                       : 'bg-white text-slate-700 rounded-tl-sm border border-slate-100'
-                  }`}>
+                    }`}>
                     {msg.text}
                   </div>
                 </div>
               ))}
-              
+
               {isTyping && (
                 <div className="flex gap-3">
-                   <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Bot className="w-4 h-4 text-primary" />
                   </div>
                   <div className="bg-white p-3 rounded-2xl rounded-tl-sm border border-slate-100 flex items-center gap-1 shadow-sm">
@@ -132,7 +130,7 @@ const AIChatWidget: React.FC = () => {
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask about Abdul..."
+                  placeholder="Ask about Raheel..."
                   disabled={isTyping}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-12 py-3 text-sm text-slate-900 focus:outline-none focus:border-primary/50 focus:bg-white transition-all placeholder:text-slate-400 disabled:opacity-50"
                 />
