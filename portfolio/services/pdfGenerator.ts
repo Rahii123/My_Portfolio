@@ -219,7 +219,7 @@ export const generatePDF = () => {
   addHeading("Education");
   addSubHeading("Bachelor of Computer Science", "Dec 2021 – Dec 2025");
   addBody("University of Azad Jammu & Kashmir, Pakistan");
-  addBody("Graduated among top 10% of batch, CGPA: 3.2/4.0");
+  addBody("Graduated among top 10% of batch, CGPA: 3.28/4.0");
 
   // --- CERTIFICATIONS ---
   addHeading("Certifications");

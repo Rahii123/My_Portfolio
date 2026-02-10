@@ -13,87 +13,24 @@ interface Certificate {
 const certificates: Certificate[] = [
   {
     id: 1,
-    title: "Machine Learning Specialization",
-    issuer: "DeepLearning.AI & Stanford University",
-    date: "Nov 23, 2024",
-    link: "https://coursera.org/verify/specialization/Z4T9846HY3CB"
+    title: "Supervised Machine Learning: Regression and Classification",
+    issuer: "Coursera",
+    date: "Apr 2025",
+    link: "#"
   },
   {
     id: 2,
-    title: "Supervised Machine Learning: Regression and Classification",
-    issuer: "DeepLearning.AI & Stanford University",
-    date: "Oct 31, 2024",
-    link: "https://coursera.org/verify/SJRY6DVO3O79"
+    title: "Advanced Learning Algorithms",
+    issuer: "Coursera",
+    date: "Apr 2025",
+    link: "#"
   },
   {
     id: 3,
-    title: "Advanced Learning Algorithms",
-    issuer: "DeepLearning.AI & Stanford University",
-    date: "Nov 23, 2024",
-    link: "https://coursera.org/verify/U4R1H93WV6AR"
-  },
-  {
-    id: 4,
     title: "Unsupervised Learning, Recommenders, Reinforcement Learning",
-    issuer: "DeepLearning.AI & Stanford University",
-    date: "Nov 10, 2024",
-    link: "https://coursera.org/verify/5HGZJYZISSU1"
-  },
-  {
-    id: 5,
-    title: "Responsible AI for Mental Health",
-    issuer: "Northeastern University",
-    date: "Oct 28, 2025",
-    link: "https://coursera.org/verify/WMI7P85ICOYN"
-  },
-  {
-    id: 6,
-    title: "AI For Everyone",
-    issuer: "DeepLearning.AI",
-    date: "Jul 8, 2025",
-    link: "https://coursera.org/verify/YTE2CP152N76"
-  },
-  {
-    id: 7,
-    title: "Master Problem Solving and Critical Thinking",
-    issuer: "LearnKartS",
-    date: "Sep 13, 2025",
-    link: "https://coursera.org/verify/8PBPNY45GEZA"
-  },
-  {
-    id: 8,
-    title: "Effective Problem-Solving and Decision-Making",
-    issuer: "University of California, Irvine",
-    date: "Sep 12, 2025",
-    link: "https://coursera.org/verify/56VKYS1270B9"
-  },
-  {
-    id: 9,
-    title: "Introduction to Certified Professional Biller",
-    issuer: "AAPC",
-    date: "Jul 20, 2025",
-    link: "https://coursera.org/verify/4DWGGYLQ6EVC"
-  },
-  {
-    id: 10,
-    title: "Active Listening: Enhancing Communication Skills",
     issuer: "Coursera",
-    date: "Nov 15, 2025",
-    link: "https://coursera.org/verify/L0OO3ZW22YPC"
-  },
-  {
-    id: 11,
-    title: "Tools and Techniques for Managing Stress",
-    issuer: "Starweaver",
-    date: "Nov 8, 2025",
-    link: "https://coursera.org/verify/DZBE2W09EPOT"
-  },
-  {
-    id: 12,
-    title: "Stress Management Techniques",
-    issuer: "LearnKartS",
-    date: "Nov 9, 2025",
-    link: "https://coursera.org/verify/UCUMQDLV1EFY"
+    date: "Apr 2025",
+    link: "#"
   }
 ];
 
@@ -126,26 +63,26 @@ const Certificates: React.FC = () => {
                   <Award className="w-5 h-5" />
                 </div>
                 <div className="p-1 rounded-full bg-green-50 border border-green-100 opacity-0 group-hover:opacity-100 transition-opacity">
-                   <ShieldCheck className="w-4 h-4 text-green-600" />
+                  <ShieldCheck className="w-4 h-4 text-green-600" />
                 </div>
               </div>
-              
+
               <div className="flex-grow">
                 <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {cert.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium">{cert.issuer}</p>
               </div>
-              
+
               <div className="mt-4 pt-4 border-t border-slate-200/50 flex items-center justify-between">
                 <span className="text-xs font-mono text-slate-500 bg-white px-2 py-1 rounded border border-slate-200">
                   {cert.date}
                 </span>
-                
-                <a 
+
+                <a
                   href={cert.link}
                   target="_blank"
-                  rel="noopener noreferrer" 
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1 text-xs font-bold text-primary hover:text-secondary transition-colors uppercase tracking-wide bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-full"
                 >
                   Verify <ExternalLink className="w-3 h-3" />
