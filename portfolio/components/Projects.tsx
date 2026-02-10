@@ -43,20 +43,20 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Predictive Maintenance ML",
-    description: "A machine learning pipeline for predictive maintenance, identifying potential failures in industrial machinery before they occur.",
-    tags: ["Python", "Scikit-learn", "Pandas", "IoT"],
+    title: "Advanced MCP Server",
+    description: "Built MCP server providing real-time AI agent access to system data, increasing autonomous agent efficiency by 30% through structured API workflows. Implemented weather alerts, news search, and directory exploration with secure .env key management.",
+    tags: ["Python", "FastMCP", "APIs", "uv", "Railway"],
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
-    githubUrl: "https://github.com/Rahii123/Predictive_Maintainence_Machine-Learning",
+    githubUrl: "https://github.com/Rahii123/mcp",
     demoUrl: ""
   },
   {
     id: 6,
-    title: "Urdu Deepfake Detection",
-    description: "Cutting-edge research project focused on detecting deepfake audio in Urdu language, utilizing specialized acoustic features.",
-    tags: ["Python", "PyTorch", "Wav2Vec2", "Signal Processing"],
-    image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=800&auto=format&fit=crop",
-    githubUrl: "https://github.com/Rahii123",
+    title: "House Price Prediction",
+    description: "Machine learning model for predicting house prices based on various features using regression algorithms. Implements data preprocessing, feature engineering, and model evaluation techniques.",
+    tags: ["Python", "Scikit-learn", "Pandas", "Regression"],
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
+    githubUrl: "https://github.com/Rahii123/House-price-Pridiction",
     demoUrl: ""
   }
 ];

@@ -16,7 +16,7 @@ const certificates: Certificate[] = [
     title: "Supervised Machine Learning: Regression and Classification",
     issuer: "Coursera",
     date: "Apr 2025",
-    link: "#"
+    link: "https://www.coursera.org/account/accomplishments/specialization/10B1HRCSRNQH"
   },
   {
     id: 2,
