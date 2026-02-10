@@ -88,7 +88,6 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-sans tracking-tight leading-tight text-slate-900"
           >
-            I'm{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">
               Raheel Nadeem
             </span>
@@ -136,13 +135,15 @@ const Hero: React.FC = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </a>
-            <a
-              href="/cv.pdf"
-              download="Raheel_Nadeem_CV.pdf"
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                generatePDF();
+              }}
               className="px-6 py-3 rounded-full border border-slate-200 bg-white text-slate-700 font-medium hover:bg-slate-50 transition-colors flex items-center gap-2 shadow-sm hover:shadow text-sm sm:text-base cursor-pointer"
             >
               <Download className="w-4 h-4" /> Download CV
-            </a>
+            </button>
           </motion.div>
 
           <motion.div
@@ -152,12 +153,12 @@ const Hero: React.FC = () => {
             className="flex gap-3 sm:gap-6 pt-6 sm:pt-8 flex-wrap"
           >
             <SocialLink
-              href={isMobile ? "mailto:rahiiiraja123@gmail.com" : "https://mail.google.com/mail/?view=cm&fs=1&to=raheel@example.com"}
+              href="mailto:rahiiiraja123@gmail.com"
               icon={<Mail className="w-5 h-5" />}
               isMobile={isMobile}
             />
             <SocialLink
-              href={isMobile ? "whatsapp://send?phone=920000000000" : "https://wa.me/920000000000"}
+              href={isMobile ? "whatsapp://send?phone=923434377512" : "https://wa.me/923434377512"}
               icon={<WhatsAppIcon className="w-5 h-5" />}
               isMobile={isMobile}
             />
@@ -168,18 +169,8 @@ const Hero: React.FC = () => {
               isMobile={isMobile}
             />
             <SocialLink
-              href="https://www.linkedin.com/in/raheel-nadeem"
+              href="https://www.linkedin.com/in/raheel-nadeem-0b46ab308/"
               icon={<Linkedin className="w-5 h-5" />}
-              isMobile={isMobile}
-            />
-            <SocialLink
-              href={isMobile ? "twitter://user?screen_name=raheel" : "https://x.com/raheel"}
-              icon={<XIcon className="w-4 h-4" />}
-              isMobile={isMobile}
-            />
-            <SocialLink
-              href={isMobile ? "instagram://user?username=raheel" : "https://www.instagram.com/raheel"}
-              icon={<Instagram className="w-5 h-5" />}
               isMobile={isMobile}
             />
           </motion.div>

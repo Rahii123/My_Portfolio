@@ -68,7 +68,9 @@ export const generatePDF = () => {
   const addLink = (text: string, url: string, indent = 0, fontSize = 10) => {
     doc.setTextColor(6, 182, 212);
     doc.setFontSize(fontSize);
-    doc.textWithLink(text, leftMargin + indent, y, { url: url });
+    doc.text(text, leftMargin + indent, y);
+    const textWidth = doc.getTextWidth(text);
+    doc.link(leftMargin + indent, y - fontSize / 3, textWidth, fontSize, { url });
     doc.setTextColor(0, 0, 0);
   };
 
@@ -81,17 +83,42 @@ export const generatePDF = () => {
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
-  doc.text("AI / Machine Learning Engineer", 105, y, { align: "center" });
+  doc.text("AI Engineer", 105, y, { align: "center" });
   y += 5;
-  doc.text("+92-343-4377512 | rahiiiraja123@gmail.com", 105, y, { align: "center" });
+  doc.text("Email: rahiiiraja123@gmail.com | WhatsApp: +92-343-4377512", 105, y, { align: "center" });
   y += 5;
 
   // Links row
   const linkY = y;
   doc.setTextColor(6, 182, 212);
-  doc.textWithLink("linkedin.com/in/raheel-nadeem", 70, linkY, { url: "https://www.linkedin.com/in/raheel-nadeem" });
-  doc.text("|", 105, linkY, { align: "center" });
-  doc.textWithLink("github.com/Rahii123", 110, linkY, { url: "https://github.com/Rahii123" });
+
+  const linkedInText = "linkedin.com/in/raheel-nadeem-0b46ab308";
+  const linkedInUrl = "https://www.linkedin.com/in/raheel-nadeem-0b46ab308/";
+  const githubText = "github.com/Rahii123";
+  const githubUrl = "https://github.com/Rahii123";
+
+  // Calculate centering
+  doc.setFontSize(10);
+  const linkedInWidth = doc.getTextWidth(linkedInText);
+  const githubWidth = doc.getTextWidth(githubText);
+  const separator = " | ";
+  const separatorWidth = doc.getTextWidth(separator);
+
+  const totalWidth = linkedInWidth + separatorWidth + githubWidth;
+  let startX = (210 - totalWidth) / 2;
+
+  doc.text(linkedInText, startX, linkY);
+  doc.link(startX, linkY - 3, linkedInWidth, 4, { url: linkedInUrl });
+
+  startX += linkedInWidth;
+  doc.setTextColor(0, 0, 0);
+  doc.text(separator, startX, linkY);
+
+  startX += separatorWidth;
+  doc.setTextColor(6, 182, 212);
+  doc.text(githubText, startX, linkY);
+  doc.link(startX, linkY - 3, githubWidth, 4, { url: githubUrl });
+
   doc.setTextColor(0, 0, 0);
   y += 10;
 
