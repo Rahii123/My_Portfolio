@@ -19,15 +19,14 @@ const experiences: ExperienceItem[] = [
   },
   {
     id: 1,
-    role: "AI & ML Intern",
-    company: "ITSOLERA Pvt. Ltd.",
-    companyUrl: "https://www.itsolera.com",
-    period: "June 2025 - Aug 2025",
+    role: "Remote AI/ML Intern",
+    company: "Arch Technologies",
+    companyUrl: "#",
+    period: "Nov 2025 - Dec 2025",
     description: [
-      "Built AI systems to detect fake/bot profiles on social media.",
-      "Automated construction progress tracking with ML models.",
-      "Created risk scoring algorithms for agricultural disaster zones.",
-      "Collaborated on diverse AI projects with rapid technical adaptability."
+      "Developed supervised ML models including MNIST digit classifier and customer churn prediction, achieving 90% accuracy on test datasets, by implementing end-to-end pipelines.",
+      "Engineered features, analyzed datasets, and visualized results to improve model interpretability and performance by 30%.",
+      "Implemented Git/GitHub version control for remote team collaboration, improving workflow efficiency by 20%."
     ]
   }
 ];
@@ -42,7 +41,7 @@ const Experience: React.FC = () => {
 
         <div className="relative border-l border-slate-200 ml-4 md:ml-0 space-y-12">
           {experiences.map((exp, index) => (
-            <motion.div 
+            <motion.div
               key={exp.id}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -52,16 +51,16 @@ const Experience: React.FC = () => {
             >
               {/* Timeline dot */}
               <div className="absolute -left-[5px] top-2 w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(6,182,212,0.4)]"></div>
-              
+
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
-                     {exp.role}
+                    {exp.role}
                   </h3>
                   <div className="flex items-center gap-2 text-primary font-medium mt-1 text-sm sm:text-base">
                     <Briefcase className="w-4 h-4" />
                     {exp.companyUrl ? (
-                      <a 
+                      <a
                         href={exp.companyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -80,7 +79,7 @@ const Experience: React.FC = () => {
                   {exp.period}
                 </div>
               </div>
-              
+
               <ul className="space-y-2">
                 {exp.description.map((item, i) => (
                   <li key={i} className="text-slate-600 text-sm leading-relaxed flex items-start gap-2">

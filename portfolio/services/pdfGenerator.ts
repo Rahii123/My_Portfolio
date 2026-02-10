@@ -65,84 +65,152 @@ export const generatePDF = () => {
     y += height + 2;
   };
 
+  const addLink = (text: string, url: string, indent = 0, fontSize = 10) => {
+    doc.setTextColor(6, 182, 212);
+    doc.setFontSize(fontSize);
+    doc.textWithLink(text, leftMargin + indent, y, { url: url });
+    doc.setTextColor(0, 0, 0);
+  };
+
+
   // --- HEADER ---
   doc.setFont("helvetica", "bold");
   doc.setFontSize(24);
-  doc.text("Abdul Qahir Jalali", 105, y, { align: "center" });
+  doc.text("Raheel Nadeem", 105, y, { align: "center" });
   y += 8;
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
-  doc.text("Islamabad, Pakistan | (+92) 340 8198770", 105, y, { align: "center" });
+  doc.text("AI / Machine Learning Engineer", 105, y, { align: "center" });
   y += 5;
-  doc.text("abdulqahir421@gmail.com | linkedin.com/in/abdul-qahir-jalali", 105, y, { align: "center" });
+  doc.text("+92-343-4377512 | rahiiiraja123@gmail.com", 105, y, { align: "center" });
   y += 5;
-  doc.text("github.com/Abdul-Qahir-Jalali", 105, y, { align: "center" });
+
+  // Links row
+  const linkY = y;
+  doc.setTextColor(6, 182, 212);
+  doc.textWithLink("linkedin.com/in/raheel-nadeem", 70, linkY, { url: "https://www.linkedin.com/in/raheel-nadeem" });
+  doc.text("|", 105, linkY, { align: "center" });
+  doc.textWithLink("github.com/Rahii123", 110, linkY, { url: "https://github.com/Rahii123" });
+  doc.setTextColor(0, 0, 0);
   y += 10;
 
-  // --- ABOUT ME ---
-  addHeading("About Me");
-  addBody("Computer Science graduate with a strong foundation in Artificial Intelligence, Machine Learning, Deep Learning, NLP, MLOps and Generative AI. Skilled in building intelligent, data-driven systems and developing solutions for real-world challenges. Passionate about applying AI to understand and improve mental health, helping individuals strengthen their minds and emotional resilience through intelligent, human-centered technologies.");
+  // --- SUMMARY ---
+  addHeading("Summary");
+  addBody("AI/ML Engineer specializing in Agentic AI, RAG systems, and production-ready ML pipelines. Proven ability to design, deploy, and optimize deep learning and NLP-based systems with FastAPI, Docker, and MLOps workflows. Experienced in building real-world AI solutions for healthcare, autonomous assistants, and intelligent agents.");
 
-  // --- RESEARCH INTERESTS ---
-  addHeading("Research Interests");
-  addBody("Applying Artificial Intelligence to understand, support, and strengthen the human mind. Interested in Affective Computing, AI for Mental Health, Digital Mental Health, Emotion Recognition, and Behavioral Modeling. Aiming to use ML, DL, NLP, and Agentic AI to create ethical, human-centered systems promoting emotional well-being.");
+  // --- SKILLS ---
+  addHeading("Technical Skills");
 
-  // --- EDUCATION ---
-  addHeading("Education & Training");
-  addSubHeading("Bachelor of Science in Computer Science", "Dec 2021 - Nov 2025");
-  addBody("University of Azad Jammu and Kashmir (UAJK) | Muzaffarabad, Pakistan");
-  addBody("Final grade: 3.5 / 4.00");
-  addBody("Thesis: Deep Fake Audio Detection for Urdu Language");
-  
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.text("Programming:", leftMargin, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(" Python, C++, JavaScript, SQL", leftMargin + 25, y);
+  y += 5;
+
+  doc.setFont("helvetica", "bold");
+  doc.text("ML & AI:", leftMargin, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(" Scikit-learn, TensorFlow, PyTorch, Deep Learning, NLP, Computer Vision", leftMargin + 18, y);
+  y += 5;
+
+  doc.setFont("helvetica", "bold");
+  doc.text("LLMs & Agentic AI:", leftMargin, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(" LangChain, LangGraph, Hugging Face, RAG, Agentic AI", leftMargin + 35, y);
+  y += 5;
+
+  doc.setFont("helvetica", "bold");
+  doc.text("MLOps & Deployment:", leftMargin, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(" MLflow, DagsHub, Docker, Git, GitHub, Conda", leftMargin + 38, y);
+  y += 5;
+
+  doc.setFont("helvetica", "bold");
+  doc.text("Frameworks & APIs:", leftMargin, y);
+  doc.setFont("helvetica", "normal");
+  doc.text(" Flask, FastAPI", leftMargin + 35, y);
+  y += 8;
+
   // --- EXPERIENCE ---
-  addHeading("Work Experience");
-  
-  addSubHeading("Intern – Artificial Intelligence and Machine Learning", "Jun 2025 - Aug 2025");
-  addBody("ITSOLERA Pvt. Ltd. | Islamabad, Pakistan", 0, 10);
-  y += 2;
-  addBullet("Contributed to AI-Enhanced Detection of Fake and Bot Profiles on Social Media.");
-  addBullet("Worked on Machine Learning for Construction Progress Monitoring.");
-  addBullet("Developed Multi-Modal Risk Scoring for Disaster-Prone Agricultural Zones.");
-  addBullet("Assisted in data preprocessing, model development, and performance evaluation.");
+  addHeading("Experience");
+
+  addSubHeading("AI Intern", "Dec 2025 – Present");
+  doc.setFont("helvetica", "bold"); doc.setFontSize(10);
+  doc.text("Metropolitan Solutions | Islamabad, Pakistan", leftMargin, y); y += 6;
+  addBullet("Spearheaded the design and deployment of deep learning models for object detection and classification, achieving 92% accuracy improvement, by optimizing VGG16 architecture and training pipeline");
+  addBullet("Automated Agentic AI workflows for autonomous decision-making, enabling 35% more tasks processed per day by integrating MLOps pipelines");
+  addBullet("Integrated models into production ML pipelines with FastAPI and Docker, improving system scalability by 40%");
+  addBullet("Optimized preprocessing, feature engineering, and hyperparameter tuning, reducing model training time by 25%");
+
+  y += 4;
+  addSubHeading("Remote AI/ML Intern", "Nov 2025 – Dec 2025");
+  doc.setFont("helvetica", "bold"); doc.setFontSize(10);
+  doc.text("Arch Technologies | Remote", leftMargin, y); y += 6;
+  addBullet("Developed supervised ML models including MNIST digit classifier and customer churn prediction, achieving 90% accuracy on test datasets, by implementing end-to-end pipelines");
+  addBullet("Engineered features, analyzed datasets, and visualized results to improve model interpretability and performance by 30%");
+  addBullet("Implemented Git/GitHub version control for remote team collaboration, improving workflow efficiency by 20%");
 
   // --- PROJECTS ---
   addHeading("Projects");
 
-  addSubHeading("Mental Health Chatbot");
-  addBody("Developed a web-based chatbot using Deepseek API to provide empathetic mental health support. Implemented responsible AI practices with crisis detection, helpline guidance, and disclaimers. Built with Flask, HTML/CSS, and JavaScript.");
-  
-  addSubHeading("DeepFake Audio Detection for Urdu Language (FYP)");
-  addBody("Developed a deepfake audio detection system for the Urdu language. Collected and created a balanced dataset of real and cloned voices, then fine-tuned the 'wav2vec2-large-xlsr-53' model. Built a Flask web app for analysis.");
+  addSubHeading("Kidney Guard AI: Deep Learning CT Scan Classifier", "GitHub Link");
+  // Assuming user wants link on the title or right text. For PDF text clickability is tricky with complex layout wrappers, so simple approach:
+  doc.link(leftMargin + contentWidth - 20, y - 5, 20, 5, { url: "https://github.com/Rahii123/Kidney_disease_classification" });
 
-  addSubHeading("CallReview-Automation using AI");
-  addBody("AI-based system to automate Humanatic call reviews. Records and processes calls, uses ElevenLabs for speech-to-text, and DeepSeek AI for decision making.");
+  addBody("Python, TensorFlow, Keras (VGG16), FastAPI, Docker, MLflow, DagsHub", 0, 9);
+  addBullet("Accomplished high-accuracy kidney CT scan classification, achieving 95% accuracy, by optimizing VGG16 CNN architecture and training pipeline for production-ready deployment");
+  addBullet("Integrated MLflow and DagsHub for experiment tracking and version control, reducing model iteration errors by 30%");
+  addBullet("Deployed Dockerized FastAPI application to Hugging Face Spaces, enabling instant diagnostic feedback for clinicians");
 
-  addSubHeading("Crop Recommendation System");
-  addBody("Built a machine learning model using Random Forest to recommend the best crop based on soil properties. Developed a Flask web app for user interaction.");
-
-  // --- SKILLS ---
-  addHeading("Skills");
-  
-  addSubHeading("Artificial Intelligence & Data Science");
-  addBody("Machine Learning, Deep Learning, NLP, Data Mining, Generative AI, SQL, MLOps, Data Science, Data Collection, Processing, Analysis, Visualization.");
-  
   y += 2;
-  addSubHeading("Programming & Development");
-  addBody("Python, C++, HTML, CSS, JavaScript, XML, Java, Scikit-learn, Tensorflow, Pytorch, Keras, Numpy, Pandas, Matplotlib, Seaborn, Nltk, LlamaIndex, Langchain, Git/GitHub, Conda, Jupyter, VS Code.");
+  addSubHeading("Agentic AI Trip Planner", "GitHub Link");
+  doc.link(leftMargin + contentWidth - 20, y - 5, 20, 5, { url: "https://github.com/Rahii123/End-to-End-AGENTIC_AI_PROJECT" });
+  addBody("Python, FastAPI, Streamlit, LangChain, LangGraph, Docker", 0, 9);
+  addBullet("Spearheaded autonomous trip planning agent using LangGraph, improving itinerary generation speed by 40% through state management optimization");
+  addBullet("Integrated live APIs for weather, currency conversion, and attractions, achieving 90% planning accuracy for personalized itineraries");
+  addBullet("Developed backend in FastAPI and frontend in Streamlit with Docker, ensuring production-ready deployment and scalability");
+
+  y += 2;
+  addSubHeading("AI Career Counseling Chatbot", "GitHub Link");
+  doc.link(leftMargin + contentWidth - 20, y - 5, 20, 5, { url: "https://github.com/Rahii123/AI-Chatbot-carrer-councelling-system" });
+  addBody("Python, Flask, LangChain, Groq LLMs, Google AI Embeddings, FAISS", 0, 9);
+  addBullet("Developed AI-powered career guidance chatbot using RAG, improving recommendation relevance by 85% for students");
+  addBullet("Integrated multiple LLM providers and secure session management, achieving 95% reliability in multi-user scenarios");
+  addBullet("Implemented persistent chat sessions and PDF-based knowledge base, enabling scalable career guidance services");
+
+  y += 2;
+  addSubHeading("Advanced MCP Server", "GitHub Link");
+  doc.link(leftMargin + contentWidth - 20, y - 5, 20, 5, { url: "https://github.com/Rahii123/agentic_support_system" });
+  addBody("Python, FastMCP, APIs, uv, Railway Deployment", 0, 9);
+  addBullet("Built MCP server providing real-time AI agent access to system data, increasing autonomous agent efficiency by 30% through structured API workflows");
+  addBullet("Implemented weather alerts, news search, and directory exploration with secure .env key management, improving operational reliability by 25%");
+  addBullet("Deployed server on Railway with SSE transport and tested local/online clients to ensure production readiness");
+
+  // --- EDUCATION ---
+  addHeading("Education");
+  addSubHeading("Bachelor of Computer Science", "Dec 2021 – Dec 2025");
+  addBody("University of Azad Jammu & Kashmir, Pakistan");
+  addBody("Graduated among top 10% of batch, CGPA: 3.2/4.0");
 
   // --- CERTIFICATIONS ---
   addHeading("Certifications");
-  addBullet("Responsible AI for Mental Health | Northeastern University (Coursera)");
-  addBullet("Master Problem Solving and Critical Thinking | LearnKartS");
-  addBullet("Effective Problem-Solving and Decision-Making | UC Irvine");
-  addBullet("Machine Learning Specialization | DeepLearning.AI");
-  addBullet("AI For Everyone | DeepLearning.AI");
-  addBullet("Introduction to Certified Professional Biller | AAPC");
+  checkPageBreak(30);
 
-  // --- LANGUAGES ---
-  addHeading("Languages");
-  addBody("English (C1 - Proficient), Urdu (Native), Pahari (Native)");
+  addSubHeading("Supervised Machine Learning: Regression and Classification", "Apr 2025");
+  addBody("Coursera", 0, 9);
+  addBullet("Applied modern ML techniques including supervised/unsupervised learning, recommender systems, and reinforcement learning to real-world datasets");
 
-  doc.save("Abdul_Qahir_Jalali_CV.pdf");
+  y += 2;
+  addSubHeading("Advanced Learning Algorithms", "Apr 2025");
+  addBody("Coursera", 0, 9);
+  addBullet("Built and trained neural networks using TensorFlow with emphasis on layer operations, feature learning, and vectorized computations");
+
+  y += 2;
+  addSubHeading("Unsupervised Learning, Recommenders, Reinforcement Learning", "Apr 2025");
+  addBody("Coursera", 0, 9);
+  addBullet("Developed deep Q-learning and recommender system solutions, applying advanced RL and unsupervised algorithms to practical problems");
+
+  doc.save("Raheel_Nadeem_CV.pdf");
 };
